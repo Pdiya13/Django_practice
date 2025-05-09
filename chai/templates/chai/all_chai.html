@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Selection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+        .header, .footer {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #2a5298;
+            width: 100%;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        .container {
+            background: #ffffff;
+            width: 90%;
+            max-width: 1000px;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0 60px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .subject-card, .topic-card {
+            background: white;
+            border: 2px solid #2a5298;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2a5298;
+            width: 200px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .subject-card:hover, .topic-card:hover {
+            background: #2a5298;
+            color: white;
+        }
+        .topic-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .topic-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Online Test Management System</div>
+    <div class="container">
+        <div class="title">Google Classroom Style - Subject List</div>
+        <div class="grid" id="subjectGrid">
+            <div class="subject-card" onclick="showTopics('Mathematics')">Mathematics</div>
+            <div class="subject-card" onclick="showTopics('Programming For Problem Solving')">Programming For Problem Solving</div>
+            <div class="subject-card" onclick="showTopics('Physics')">Physics</div>
+            <div class="subject-card" onclick="showTopics('Data Structure and Algorithm')">Data Structure and Algorithm</div>
+            <div class="subject-card" onclick="showTopics('Database Management System')">Database Management System</div>
+            <div class="subject-card" onclick="showTopics('Design of Digital Circuit')">Design of Digital Circuit</div>
+            <div class="subject-card" onclick="showTopics('Design and Analysis of Algorithms')">Design and Analysis of Algorithms</div>
+            <div class="subject-card" onclick="showTopics('Java Technology')">Java Technology</div>
+            <div class="subject-card" onclick="showTopics('Software Workshop')">Software Workshop</div>
+            <div class="subject-card" onclick="showTopics('Software Programming')">Software Programming</div>
+        </div>
+
+        <div class="topic-container" id="topicContainer">
+            <div class="topic-title" id="topicTitle"></div>
+            <div class="grid" id="topicGrid"></div>
+        </div>
+    </div>
+    <div class="footer">&copy; 2024 Online Exam System. All rights reserved.</div>
+
+    <script>
+        const topics = {
+            "Mathematics": ["Algebra", "Geometry", "Calculus", "Trigonometry"],
+            "Programming For Problem Solving": ["C Basics", "Loops", "Functions", "Pointers"],
+            "Physics": ["Kinematics", "Thermodynamics", "Electromagnetism"],
+            "Data Structure and Algorithm": ["Arrays", "Linked Lists", "Trees", "Graphs"],
+            "Database Management System": ["SQL", "Normalization", "Transactions"],
+            "Design of Digital Circuit": ["Logic Gates", "Flip-Flops", "K-Maps"],
+            "Design and Analysis of Algorithms": ["Sorting", "Dynamic Programming", "Greedy Algorithms"],
+            "Java Technology": ["OOP Concepts", "Multithreading", "Collections"],
+            "Software Workshop": ["Git", "Docker", "CI/CD"],
+            "Software Programming": ["Python", "JavaScript", "C++"]
+        };
+
+        function showTopics(subject) {
+            const topicContainer = document.getElementById("topicContainer");
+            const topicTitle = document.getElementById("topicTitle");
+            const topicGrid = document.getElementById("topicGrid");
+
+            topicTitle.textContent = `Topics for ${subject}`;
+            topicGrid.innerHTML = "";
+
+            topics[subject].forEach(topic => {
+                let div = document.createElement("div");
+                div.className = "topic-card";
+                div.textContent = topic;
+                topicGrid.appendChild(div);
+            });
+
+            topicContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>

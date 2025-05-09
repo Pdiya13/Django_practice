@@ -1,0 +1,13 @@
+{% extends "layout.html" %} 
+{% comment %} when you extends this it will first search at app level but at app level not present so then it will start searching at main project level 
+template folder to search for this template layout.html
+it will do so because you have do set up in setting and let your project know about the template folder  {% endcomment %}
+
+{% block title %}
+chai Home page
+{% endblock %}
+
+{% block content %}
+<h1>Chai aur Code chaiii temp | Home page</h1>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai detail page</title>
+</head>
+<body>
+    {% block content %}
+    <h1>All types of available CHAI</h1>
+
+    <h3>{{chai.name}}</h3>
+    <h3>{{chai.description}}</h3>
+    {% endblock %}
+    
+</body>
+</html>
